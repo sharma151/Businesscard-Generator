@@ -1,0 +1,133 @@
+.template2 {
+  margin: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 220px;
+  width: 370px;
+  box-shadow: 3px 3px 33px 3px rgba(0, 0, 0, 0.6);
+  position: relative;
+
+  .temp2-bg,
+  .temp2-bg-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    background-image: url("../../assets/template2bg.png");
+  }
+
+  .temp2-bg {
+    -webkit-clip-path: polygon(60% 0, 100% 0, 100% 100%, 60% 100%, 50% 65%);
+    clip-path: polygon(60% 0, 100% 0, 100% 100%, 60% 100%, 50% 65%);
+  }
+
+  .temp2-web {
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    width: 176px;
+    height: 15px;
+    display: inline-block;
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    padding: 6px 20px;
+    text-transform: uppercase;
+    line-height: 0.8;
+    background-image: radial-gradient(#d38598, #ec0036);
+    -webkit-clip-path: polygon(0 0%, 94% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0%, 94% 0, 100% 100%, 0% 100%);
+  }
+
+  .company-logo {
+    position: absolute;
+    font-size: 50px;
+    transform: rotate(45deg);
+    left: 75px;
+    top: 15px;
+    color: #be0045;
+  }
+
+  .temp2-content {
+    position: absolute;
+    top: 90px;
+    left: 14px;
+    width: 250px;
+    height: 90px;
+    display: inline-block;
+
+    p {
+      margin: 0;
+      text-decoration: underline gray;
+      text-transform: uppercase;
+      font-size: 18px;
+      line-height: 0.8;
+      font-weight: 700;
+    }
+
+    small {
+      color: gray;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+  }
+
+  .temp2-company {
+    position: absolute;
+    top: 145px;
+    color: #fff;
+    font-size: 23px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    font-family: "Great Vibes", cursive;
+    width: 100%;
+    height: 100%;
+  }
+
+  .phone-h {
+    position: absolute;
+    top: 117px;
+    right: 151px;
+    background-color: black;
+    color: #fff;
+    font-size: 12px;
+    padding: 0 10px;
+    width: 12px;
+    line-height: 1.6;
+    height: 20px;
+    -webkit-clip-path: polygon(16% 0, 100% 0%, 83% 100%, 0% 100%);
+    clip-path: polygon(16% 0, 100% 0%, 83% 100%, 0% 100%);
+  }
+
+  .phone-v {
+    position: absolute;
+    top: 117px;
+    left: 220px;
+    color: #fff;
+    font-size: 12px;
+  }
+
+  .email-h {
+    position: absolute;
+    top: 146px;
+    right: 151px;
+    background-color: black;
+    color: #fff;
+    font-size: 12px;
+    padding: 0 10px;
+    width: 12px;
+    line-height: 1.6;
+    height: 20px;
+    -webkit-clip-path: polygon(0% 0, 70% 0%, 100% 100%, 30% 100%);
+    clip-path: polygon(0% 0, 70% 0%, 100% 100%, 30% 100%);
+  }
+
+  .email-v {
+    position: absolute;
+    top: 145px;
+    left: 219px;
+    color: #fff;
+    font-size: 12px;
+  }
+}
