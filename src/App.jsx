@@ -1,36 +1,29 @@
-import Form from "./Form";
-import Template1 from "./Templates/Template1";
-import Template2 from "./Templates/Template2";
+import Homepage from "./Pages/Homepage";
+import { UserDataProvider } from "./Context/userdatacontext";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Layout from "./Layout";
+import Businesscard from "./Pages/Businesscard";
+import Qrcode from "./Pages/Qrcode";
+import Barcode from "./Pages/Barcode";
 
-const temp1Data = {
-  fname: "saurav",
-  lname: "sharma",
-  designation: "frontend developer",
-  email: "john.doe@example.com",
-  countryCode: "1",
-  phoneNumber: "1234567890",
-  website: "www.johndoe.com",
-  company: "Doe Industries",
-  gst: "24AAACC1206D1ZM",
-};
-const temp2Data = {
-  fname: "saurav",
-  lname: "sharma",
-  designation: "Frontend Engineer",
-  phoneNumber: "1234567890",
-  countryCode: "977 ",
-  website: "www.businesscard.com",
-  company: "Tech Corp",
-};
-
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <Template1 temp1Data={temp1Data} />
-      <Template2 temp2Data={temp2Data} />
-      <Form />
-    </div>
+    <>
+      <UserDataProvider>
+        <Router>
+          <Routes>
+            <Route element={<Layout />}>
+              <Route path="/" element={<Homepage />} />
+              <Route path="/Qrcode" element={<Qrcode />} />
+              <Route path="/Barcode" element={<Barcode />} />
+
+              <Route path="/BusinessCard" element={<Businesscard />} />
+            </Route>
+          </Routes>
+        </Router>
+      </UserDataProvider>
+    </>
   );
-}
+};
 
 export default App;

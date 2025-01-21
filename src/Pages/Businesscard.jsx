@@ -14,8 +14,9 @@ const Businesscard = () => {
           <Template1 temp1Data={userData} />
           <Template2 temp2Data={userData} />
         </div>
-
-        <Form className="form" />
+        <div className="form">
+          <Form />
+        </div>
       </div>
     </>
   );

@@ -1,58 +1,37 @@
 import "../style/Pages/Qrcode.scss";
 import QRCode from "react-qr-code";
-import { useContext, useState } from "react";
-import { UserDataContext } from "../Context/userdatacontext";
+import { useState } from "react";
 
 const Qrcode = () => {
-  const { userData } = useContext(UserDataContext);
-  const [data, setData] = useState(userData);
+  const [inputValue, setInputValue] = useState("");
+  const [qrValue, setQrValue] = useState("");
 
-  // Convert user details to JSON string for QR code
-  const qrData = JSON.stringify(userData);
-  console.log("qrcode", data);
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const handleGenerate = () => {
+    setQrValue(inputValue);
+  };
 
   return (
-    <div
-      style={{
-        fontFamily: "Arial, sans-serif",
-        textAlign: "center",
-        margin: "2rem",
-      }}
-    >
+    <div className="qr-code-generator">
       <h1>QR Code Generator</h1>
-      <div
-        style={{ margin: "2rem auto", maxWidth: "400px", textAlign: "left" }}
-      >
-        <h2>User Details:</h2>
-        <p>
-          <strong>First Name:</strong> {userData.fname}
-        </p>
-        <p>
-          <strong>Last Name:</strong> {userData.lname}
-        </p>
-        <p>
-          <strong>Designation:</strong> {userData.designation}
-        </p>
-        <p>
-          <strong>Phone:</strong> {userData.countryCode} {userData.phoneNumber}
-        </p>
-        <p>
-          <strong>Website:</strong> {userData.website}
-        </p>
-        <p>
-          <strong>Company:</strong> {userData.company}
-        </p>
-        <p>
-          <strong>Email:</strong> {userData.email}
-        </p>
-        <p>
-          <strong>GST Number:</strong> {userData.gstNumber || "N/A"}
-        </p>
-      </div>
-      <div>
-        <h2>Your QR Code</h2>
-        <QRCode value={qrData} size={200} />
-      </div>
+      <input
+        value={inputValue}
+        onChange={handleInputChange}
+        placeholder="Enter text, number, or paragraph..."
+        rows="4"
+        className="input-textarea"
+      />
+      <button onClick={handleGenerate} className="generate-button">
+        Generate QR Code
+      </button>
+      {qrValue && (
+        <div className="qr-code-display">
+          <QRCode value={qrValue} className="qrCode" />
+        </div>
+      )}
     </div>
   );
 };

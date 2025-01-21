@@ -1,0 +1,87 @@
+// Container for the entire barcode generator
+.barcode-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  border-radius: 10px;
+  height: 440px;
+  background-color: #f4f4f9;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+// Heading for the barcode generator
+.barcode-container h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+// Input field styling
+.barcode-input {
+  padding: 10px;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+
+  &:focus {
+    border-color: #4caf50;
+    outline: none;
+  }
+}
+
+.generate-barcode-btn {
+  padding: 12px 25px;
+  background-color: #6b6f6b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+
+  // Hover effect
+  &:hover {
+    background-color: #45a049;
+  }
+}
+
+// Barcode output styling
+.barcode-output {
+  margin-top: 30px;
+  width: 100%;
+  max-width: 400px;
+}
+
+// Mobile Responsiveness
+@media (max-width: 600px) {
+  .barcode-container {
+    padding: 15px;
+  }
+
+  .barcode-input {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .generate-barcode-btn {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .barcode-output {
+    width: 100%;
+    max-width: 100%;
+  }
+}
