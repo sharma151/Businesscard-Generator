@@ -1,10 +1,28 @@
 /* eslint-disable react/prop-types */
-import "../style/Template1.css"; // Import the CSS file for styling
+import "../style/Templates/Template1.scss"; 
 import { HiOutlineMail } from "react-icons/hi";
 import { HiPhone, HiMiniGlobeAsiaAustralia } from "react-icons/hi2";
 import { CgWebsite } from "react-icons/cg";
+import QRCode from "react-qr-code";
 
 const Template = ({ temp1Data }) => {
+  // Create vCard format for QR code
+  const vCardData = `
+BEGIN:VCARD
+VERSION:4.0
+FN:${temp1Data?.fname || "First Name"} ${temp1Data?.lname || "Last Name"}
+ORG:${temp1Data?.company || "Company"}
+TITLE:${temp1Data?.designation || "Designation"}
+EMAIL:${temp1Data?.email || "username@example.com"}
+TEL;VALUE=uri;TYPE=work,voice:${
+    temp1Data?.countryCode && temp1Data?.phoneNumber
+      ? `tel:+${temp1Data.countryCode}-${temp1Data.phoneNumber}`
+      : "tel:+91-98xxxxxx98"
+  }
+URL:${temp1Data?.website || "https://www.example.com"}
+END:VCARD
+`.trim();
+
   return (
     <div className="template">
       <div className="flip-inner">
@@ -51,26 +69,23 @@ const Template = ({ temp1Data }) => {
                 <div style={{ backgroundColor: "red" }}>
                   <CgWebsite />
                 </div>
-                &nbsp;
-                {temp1Data.gst || "fdsfsfsdf"}
+                {temp1Data.gst || "24AAACC1206D1ZT"}
               </div>
             )}
           </div>
           <div id="temp1-qr">
-            <div id="qrcode"></div>
-            {temp1Data?.fname && (
-              <img src="../assets/QR_Code.png" alt="QR Code" />
-            )}
+            <QRCode value={vCardData} size={80} />
           </div>
           <div className="red-ts"></div>
           <div className="red-tb"></div>
         </div>
 
         {/* Back Side */}
+        {/* Uncomment and customize the back side if needed */}
         {/* <div className="back-temp temp1">
           <div className="temp1-bg"></div>
           <div className="temp1-name">
-            <strong>See you Soon bitch!!!</strong>
+            <strong>See you Soon!</strong>
             <br />
             <small>{temp1Data?.company || "Company"}</small>
           </div>
