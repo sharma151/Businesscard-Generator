@@ -1,0 +1,12 @@
+.maindiv {
+  display: flex;
+  border: 1px solid red;
+  .cards {
+    flex: 1;
+   
+  }
+  .form {
+    flex: 1;
+    
+  }
+}
