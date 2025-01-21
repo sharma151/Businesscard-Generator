@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import "../style/Templates/Template1.scss"; 
+import "../style/Templates/Template1.scss";
 import { HiOutlineMail } from "react-icons/hi";
 import { HiPhone, HiMiniGlobeAsiaAustralia } from "react-icons/hi2";
 import { CgWebsite } from "react-icons/cg";
@@ -24,10 +24,10 @@ END:VCARD
 `.trim();
 
   return (
-    <div className="template">
+    <div className="template1">
       <div className="flip-inner">
         {/* Front Side */}
-        <div className="front-temp temp1">
+        <div className="front-temp ">
           <div className="temp1-bg"></div>
           <div className="temp1-name">
             <strong>
@@ -66,9 +66,10 @@ END:VCARD
             )}
             {temp1Data?.gst && (
               <div className="temp1-h">
-                <div style={{ backgroundColor: "red" }}>
+                <div style={{ backgroundColor: "#b60b0b" }}>
                   <CgWebsite />
                 </div>
+                &nbsp;
                 {temp1Data.gst || "24AAACC1206D1ZT"}
               </div>
             )}
