@@ -1,11 +1,14 @@
 /* eslint-disable react/prop-types */
-import "../style/Template2.css";
+import "../style/Templates/Template2.scss";
 
-import { HiPhone, HiMiniGlobeAsiaAustralia } from "react-icons/hi2";
+import { HiOutlineMail } from "react-icons/hi";
+import { TfiJoomla } from "react-icons/tfi";
+
+import { HiPhone } from "react-icons/hi2";
 
 const Template2 = ({ temp2Data }) => {
   return (
-    <div className="template">
+    <div className="template2">
       <div className="flip-inner">
         <div className="front-temp temp2">
           <div className="temp2-bg"></div>
@@ -13,13 +16,13 @@ const Template2 = ({ temp2Data }) => {
             <small>{temp2Data?.website || "www.yourwebsite.com"}</small>
           </div>
           <div className="company-logo">
-            <i className="fab fa-joomla"></i>
+            <TfiJoomla />
           </div>
           <div className="temp2-content">
             <p>
               {temp2Data.fname && temp2Data.lname
                 ? `${temp2Data.fname} ${temp2Data.lname}`
-                : "Saurav sharma"}
+                : "Your Name"}
             </p>
             <small>{temp2Data.designation || "Designation"}</small>
           </div>
@@ -34,10 +37,10 @@ const Template2 = ({ temp2Data }) => {
             </small>
           </div>
           <div className="email-h">
-            <HiMiniGlobeAsiaAustralia />
+            <HiOutlineMail />
           </div>
           <div className="email-v">
-            <small>{temp2Data.website || "www.example.com"}</small>
+            <small>{temp2Data.email || "www.example.com"}</small>
           </div>
         </div>
       </div>
