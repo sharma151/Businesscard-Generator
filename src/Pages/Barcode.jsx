@@ -6,7 +6,6 @@ import DownloadButton from "../Components/DownloadButton";
 const Barcode = () => {
   const [inputData, setInputData] = useState("");
   const barcodeRef = useRef(null);
-  const cardRef = useRef(null);
 
   const truncateData = (data) => {
     const maxLength = 50;
@@ -17,7 +16,7 @@ const Barcode = () => {
     if (barcodeRef.current && inputData) {
       const processedData = truncateData(inputData);
       JsBarcode(barcodeRef.current, processedData, {
-        format: "CODE39",
+        format: "CODE128",
         width: 2,
         height: 60,
         displayValue: false,
@@ -49,10 +48,10 @@ const Barcode = () => {
       </div>
 
       {barcodeRef && (
-        <div className="barcode-output" ref={cardRef}>
+        <div className="barcode-output">
           <svg ref={barcodeRef}></svg>
           <DownloadButton
-            targetRef={cardRef}
+            targetRef={barcodeRef}
             fileName="Barcode"
             className="qrcodestyle"
           />
