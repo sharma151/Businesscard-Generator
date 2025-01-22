@@ -1,25 +1,25 @@
 import "../style/Pages/barcode.scss";
 import { useRef, useState } from "react";
 import JsBarcode from "jsbarcode";
+import DownloadButton from "../Components/DownloadButton";
 
 const Barcode = () => {
-  const [inputData, setInputData] = useState(""); // State to store user input
-  const barcodeRef = useRef(null); // Reference to the barcode SVG
+  const [inputData, setInputData] = useState("");
+  const barcodeRef = useRef(null);
+  const cardRef = useRef(null);
 
   const truncateData = (data) => {
-    // Limit barcode data length to 20 characters
-    const maxLength = 20;
+    const maxLength = 50;
     return data.length > maxLength ? data.substring(0, maxLength) : data;
   };
 
   const generateBarcode = () => {
     if (barcodeRef.current && inputData) {
-      const processedData = truncateData(inputData); // Process input data
+      const processedData = truncateData(inputData);
       JsBarcode(barcodeRef.current, processedData, {
-        format: "CODE128",
-        lineColor: "#000",
-        width: 1.5,
-        height: 40,
+        format: "CODE39",
+        width: 2,
+        height: 60,
         displayValue: false,
       });
     }
@@ -31,20 +31,33 @@ const Barcode = () => {
 
   return (
     <div className="barcode-container">
-      <h2>Barcode Generator</h2>
-      <input
-        type="text"
-        placeholder="Enter data for barcode"
-        value={inputData}
-        onChange={handleInputChange}
-        className="barcode-input"
-      />
-      <button onClick={generateBarcode} className="generate-barcode-btn">
-        Generate Barcode
-      </button>
-      <div className="barcode-output">
-        <svg ref={barcodeRef}></svg>
+      <div className="header">
+        <h2>Barcode Generator</h2>
+        <p>Generate a clean and scannable barcode in seconds!</p>
       </div>
+      <div className="input-section">
+        <input
+          type="text"
+          placeholder="Enter data (max 50 characters)"
+          value={inputData}
+          onChange={handleInputChange}
+          className="barcode-input"
+        />
+        <button onClick={generateBarcode} className="generate-barcode-btn">
+          Generate Barcode
+        </button>
+      </div>
+
+      {barcodeRef && (
+        <div className="barcode-output" ref={cardRef}>
+          <svg ref={barcodeRef}></svg>
+          <DownloadButton
+            targetRef={cardRef}
+            fileName="Barcode"
+            className="qrcodestyle"
+          />
+        </div>
+      )}
     </div>
   );
 };
