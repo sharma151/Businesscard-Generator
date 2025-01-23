@@ -1,0 +1,84 @@
+.template4 {
+  display: flex;
+  width: 370px;
+  height: 220px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+
+  .card-left {
+    flex: 1.5;
+    background: #124a50;
+    color: white;
+    padding: 20px;
+    position: relative;
+
+    clip-path: polygon(0 0, 70% 0, 100% 100%, 0% 100%);
+
+    .qr-code {
+      width: 60px;
+      height: 60px;
+      background: white;
+      color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      padding: 3px;
+      .temp4qrcode {
+        width: 60px;
+        width: 60px;
+      }
+    }
+
+    .contact-info {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0px;
+
+      li {
+        margin-bottom: 10px;
+        font-size: 13px;
+        line-height: 7px;
+      }
+    }
+  }
+
+  .card-right {
+    flex: 1.5;
+    background: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    text-align: left;
+
+    h2 {
+      font-size: 1.5em;
+      margin: 0;
+    }
+
+    p {
+      font-size: 1em;
+      margin: 0;
+      color: gray;
+    }
+
+    .logo {
+      margin-top: auto;
+      align-self: center;
+      font-size: 2em;
+      font-weight: bold;
+      color: teal;
+      border: 2px solid teal;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
