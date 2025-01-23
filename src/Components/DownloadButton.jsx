@@ -4,7 +4,7 @@ import jsPDF from "jspdf";
 import "../style/Components/Downloadbtn.scss";
 import { BiSolidFilePng, BiSolidFilePdf } from "react-icons/bi";
 
-const DownloadButton = ({ targetRef, fileName }) => {
+const DownloadButton = ({ targetRef, fileName, className }) => {
   const handleDownloadPNG = async () => {
     if (!targetRef?.current) return;
     try {
@@ -52,7 +52,7 @@ const DownloadButton = ({ targetRef, fileName }) => {
   };
 
   return (
-    <div className="download-btn">
+    <div className={`download-btn ${className || ""}`}>
       <button onClick={handleDownloadPNG} className="btn">
         <BiSolidFilePng />
       </button>
