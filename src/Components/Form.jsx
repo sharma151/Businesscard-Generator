@@ -14,7 +14,7 @@ const Form = () => {
     company: "",
     gst: "",
   });
-  const { setUserData, generateQrCode } = useContext(UserDataContext);
+  const { setUserData } = useContext(UserDataContext);
 
   const [errors, setErrors] = useState({});
 
@@ -42,8 +42,8 @@ const Form = () => {
     if (Object.keys(formErrors).length === 0) {
       alert("Form submitted successfully!");
       setUserData(formData);
-      const qrData = JSON.stringify(formData);
-      generateQrCode(qrData);
+      // const qrData = JSON.stringify(formData);
+      // generateQrCode(qrData);
     } else {
       setErrors(formErrors);
     }
