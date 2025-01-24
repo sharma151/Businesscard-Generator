@@ -1,0 +1,69 @@
+.template5 {
+  width: 370px;
+  height: 220px;
+  display: flex;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background-color: #b78f5b;
+
+  .card-left {
+    width: 60%;
+    position: relative;
+    background-color: #b78f5b;
+    flex-shrink: 0; /* Prevent shrinking */
+    min-width: 150px; /* Optional: Define a minimum width */
+
+    .upper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 78%;
+      background-color: #083450;
+      clip-path: polygon(0 0%, 0% 79%, 100% 0%);
+    }
+
+    .lower {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 72%;
+      background-color: #062538;
+      clip-path: polygon(0 46%, 23% 26%, 64% 100%, 0% 101%);
+    }
+  }
+
+  .name {
+    z-index: 999;
+    position: relative;
+    top: 60px;
+    right: 40px;
+    width: max-content;
+    color: #062538;
+  }
+
+  .temp5-details {
+    color: #062538;
+    z-index: 999;
+    font-size: 14px;
+    position: relative;
+    top: 70px;
+    right: 80px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Ensures alignment to the right */
+    gap: 5px;
+
+    /* Add padding to maintain spacing if content is absent */
+    padding: 10px;
+
+    .temp5-h {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 5px; /* Add spacing between elements */
+    }
+  }
+}
