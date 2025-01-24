@@ -1,8 +1,9 @@
 .template4 {
   display: flex;
-  width: 370px;
+  max-width: 370px;
+  width: 100%;
   height: 220px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 3px 3px 33px 3px rgba(0, 0, 0, 0.6);
   border-radius: 8px;
   overflow: hidden;
 
@@ -36,7 +37,7 @@
 
     .temp4-details {
       display: flex;
-      border: 1px solid red;
+
       flex-direction: column;
       font-size: 12px;
       position: relative;
@@ -50,10 +51,9 @@
     }
   }
 
-
   .card-right {
     flex: 1;
-    .name{
+    .name {
       display: flex;
       flex-direction: column;
       line-height: 10px;
@@ -62,9 +62,7 @@
       left: -30px;
       top: 40px;
       font-size: 18px;
-      
     }
-    
 
     .logo {
       font-size: 50px;
