@@ -10,6 +10,7 @@ const Form = () => {
     email: "",
     countryCode: "",
     phoneNumber: "",
+    address: "",
     website: "",
     company: "",
     gst: "",
@@ -42,8 +43,6 @@ const Form = () => {
     if (Object.keys(formErrors).length === 0) {
       alert("Form submitted successfully!");
       setUserData(formData);
-      // const qrData = JSON.stringify(formData);
-      // generateQrCode(qrData);
     } else {
       setErrors(formErrors);
     }
@@ -100,29 +99,42 @@ const Form = () => {
           {errors.email && <span className="error">{errors.email}</span>}
         </div>
 
-        <div className="input-group">
-          <label htmlFor="countryCode">Country Code</label>
-          <input
-            type="text"
-            id="countryCode"
-            name="countryCode"
-            value={formData.countryCode}
-            onChange={handleChange}
-          />
+        <div className="contact">
+          <div className="input-group">
+            <label htmlFor="countryCode">Country Code</label>
+            <input
+              type="text"
+              id="countryCode"
+              name="countryCode"
+              placeholder="+"
+              value={formData.countryCode}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="input-group">
+            <label htmlFor="phoneNumber">Phone</label>
+            <input
+              type="text"
+              id="phoneNumber"
+              name="phoneNumber"
+              value={formData.phoneNumber}
+              onChange={handleChange}
+            />
+            {errors.phoneNumber && (
+              <span className="error">{errors.phoneNumber}</span>
+            )}
+          </div>
         </div>
 
         <div className="input-group">
-          <label htmlFor="phoneNumber">Phone Number</label>
+          <label htmlFor="website">Address</label>
           <input
-            type="text"
-            id="phoneNumber"
-            name="phoneNumber"
-            value={formData.phoneNumber}
+            id="address"
+            name="address"
+            value={formData.address}
             onChange={handleChange}
           />
-          {errors.phoneNumber && (
-            <span className="error">{errors.phoneNumber}</span>
-          )}
         </div>
 
         <div className="input-group">
