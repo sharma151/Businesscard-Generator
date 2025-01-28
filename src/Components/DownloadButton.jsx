@@ -10,7 +10,7 @@ const DownloadButton = ({ targetRef, fileName, className }) => {
     try {
       const dataUrl = await toPng(targetRef.current, {
         pixelRatio: 4, // Increase pixel ratio for better quality
-        // Set a background color if needed
+        
       });
       const link = document.createElement("a");
       link.href = dataUrl;
