@@ -4,52 +4,48 @@ import jsPDF from "jspdf";
 import "../style/Components/Downloadbtn.scss";
 import { BiSolidFilePng, BiSolidFilePdf } from "react-icons/bi";
 
-const DownloadButton = ({ selectedRefs, fileName, className }) => {
+const DownloadButton = ({ targetRef, fileName, className }) => {
   const handleDownloadPNG = async () => {
-    if (!selectedRefs || selectedRefs.length === 0) return;
-
+    if (!targetRef?.current) return;
     try {
-      for (const ref of selectedRefs) {
-        if (!ref?.current) continue;
-
-        const dataUrl = await toPng(ref.current, { pixelRatio: 4 });
-        const link = document.createElement("a");
-        link.href = dataUrl;
-        link.download = `${fileName || "download"}.png`;
-        link.click();
-      }
+      const dataUrl = await toPng(targetRef.current, {
+        pixelRatio: 4, // Increase pixel ratio for better quality
+        // Set a background color if needed
+      });
+      const link = document.createElement("a");
+      link.href = dataUrl;
+      link.download = `${fileName || "download"}.png`;
+      link.click();
     } catch (error) {
       console.error("Error downloading PNG:", error);
     }
   };
 
   const handleDownloadPDF = async () => {
-    if (!selectedRefs || selectedRefs.length === 0) return;
-
+    if (!targetRef?.current) return;
     try {
-      for (const ref of selectedRefs) {
-        if (!ref?.current) continue;
+      const dataUrl = await toPng(targetRef.current, { pixelRatio: 4 });
+      const pdf = new jsPDF();
 
-        const dataUrl = await toPng(ref.current, { pixelRatio: 4 });
-        const pdf = new jsPDF();
-        const imgProps = pdf.getImageProperties(dataUrl);
-        const pdfWidth = pdf.internal.pageSize.getWidth();
-        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      // Getting image properties to maintain aspect ratio
+      const imgProps = pdf.getImageProperties(dataUrl);
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
 
-        const margin = 10;
-        const scaleFactor = 1.05;
+      const margin = 10;
+      const scaleFactor = 1.05; // Optional, adjust scale if content is still cut off
 
-        pdf.addImage(
-          dataUrl,
-          "PNG",
-          margin,
-          margin,
-          pdfWidth - margin * 2,
-          pdfHeight * scaleFactor - margin * 2
-        );
+      // Increase the margin to ensure the content isn't cut off
+      pdf.addImage(
+        dataUrl,
+        "PNG",
+        margin,
+        margin,
+        pdfWidth - margin * 2,
+        pdfHeight * scaleFactor - margin * 2 // Adjust height scaling
+      );
 
-        pdf.save(`${fileName || "download"}.pdf`);
-      }
+      pdf.save(`${fileName || "download"}.pdf`);
     } catch (error) {
       console.error("Error downloading PDF:", error);
     }
