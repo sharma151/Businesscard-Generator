@@ -12,6 +12,7 @@ const Template2 = ({ temp2Data }) => {
 
   return (
     <>
+     
       <div ref={targetRef} className="template2">
         <div className="wrapper">
           <div className="flip-inner">
@@ -45,7 +46,7 @@ const Template2 = ({ temp2Data }) => {
                 <HiOutlineMail />
               </div>
               <div className="email-v">
-                <small>{temp2Data.email || "www.example.com"}</small>
+                <small>{temp2Data.email || "username@example.com"}</small>
               </div>
             </div>
           </div>
