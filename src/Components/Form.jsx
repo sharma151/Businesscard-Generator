@@ -53,7 +53,7 @@ const Form = () => {
       <h2>Personal Information</h2>
       <div className="innercontainer">
         <div className="input-group">
-          <label htmlFor="fname">First Name</label>
+          <label htmlFor="fname">First Name *</label>
           <input
             type="text"
             id="fname"
@@ -65,7 +65,7 @@ const Form = () => {
         </div>
 
         <div className="input-group">
-          <label htmlFor="lname">Last Name</label>
+          <label htmlFor="lname">Last Name *</label>
           <input
             type="text"
             id="lname"
@@ -77,7 +77,7 @@ const Form = () => {
         </div>
 
         <div className="input-group">
-          <label htmlFor="designation">Designation</label>
+          <label htmlFor="designation">Designation *</label>
           <input
             type="text"
             id="designation"
@@ -88,7 +88,7 @@ const Form = () => {
         </div>
 
         <div className="input-group">
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">Email *</label>
           <input
             type="email"
             id="email"
@@ -101,7 +101,7 @@ const Form = () => {
 
         <div className="contact">
           <div className="input-group">
-            <label htmlFor="countryCode">Country Code</label>
+            <label htmlFor="countryCode">Country Code *</label>
             <input
               type="text"
               id="countryCode"
@@ -113,7 +113,7 @@ const Form = () => {
           </div>
 
           <div className="input-group">
-            <label htmlFor="phoneNumber">Phone</label>
+            <label htmlFor="phoneNumber">Phone *</label>
             <input
               type="text"
               id="phoneNumber"
@@ -128,7 +128,7 @@ const Form = () => {
         </div>
 
         <div className="input-group">
-          <label htmlFor="website">Address</label>
+          <label htmlFor="website">Address *</label>
           <input
             id="address"
             name="address"
