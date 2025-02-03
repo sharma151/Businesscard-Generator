@@ -150,15 +150,21 @@
 
 .template2-dbtn {
   position: absolute;
-  left: 340px;
-  top: 430px;
+  left: 300px;
+  top:420px;
   z-index: 1;
 
   .btn {
     color: white;
   }
-
-  @media (min-width: 360px) and (max-width: 500px) {
-    left: 310px;
+  @media (max-width: 360px) {
+    position: absolute;
+    left: 230px;
+    top: 230px;
+  }
+  @media (min-width: 360px) and (max-width: 450px) {
+    position: absolute;
+    left: 240px;
+    top: 235px;
   }
 }
