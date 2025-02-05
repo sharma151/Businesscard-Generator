@@ -72,6 +72,7 @@
       width: 90%;
       border-radius: 50%;
       border: 1px solid white;
+      // transform: scale(1);
     }
   }
   @media (max-width: 480px) {
@@ -81,21 +82,28 @@
   }
 
   @media (max-width: 360px) {
-    transform: scale(0.80); /* Scale down further for smaller screens */
+    transform: scale(0.8); /* Scale down further for smaller screens */
     transform-origin: top left; /* Keep origin consistent */
   }
 }
 
 .template3-dbtn {
   position: absolute;
-  // left: 340px;
-  // top: 430px;
+  left: 300px;
+  top: 650px;
   z-index: 1;
+
   .btn {
     color: white;
   }
-
-  @media (min-width: 360px) and (max-width: 500px) {
-    left: 310px;
+  @media (max-width: 360px) {
+    position: absolute;
+    left: 230px;
+    top: 450px;
+  }
+  @media (min-width: 360px) and (max-width: 450px) {
+    position: absolute;
+    left: 240px;
+    top: 455px;
   }
 }
