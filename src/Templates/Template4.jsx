@@ -1,17 +1,22 @@
 /* eslint-disable react/prop-types */
-import "../style/Templates/Template4.scss";
-import { UserDataContext } from "../Context/userdatacontext";
-import { useContext } from "react";
-import QRCode from "react-qr-code";
-import { FaBattleNet } from "react-icons/fa6";
-import { HiOutlineMail } from "react-icons/hi";
 import { HiPhone, HiMiniGlobeAsiaAustralia } from "react-icons/hi2";
+import { UserDataContext } from "../Context/userdatacontext";
+import { HiOutlineMail } from "react-icons/hi";
+import { FaHouseChimney } from "react-icons/fa6";
+import { FaBattleNet } from "react-icons/fa6";
+import { useContext } from "react";
 import { CgWebsite } from "react-icons/cg";
+import "../style/Templates/Template4.scss";
+import QRCode from "react-qr-code";
+import DownloadButton from "../Components/DownloadButton";
+import { useRef } from "react";
+
 const Template4 = ({ temp4Data }) => {
   const { vCardData } = useContext(UserDataContext);
+  const cardRef = useRef(null);
   return (
     <>
-      <div className="template4">
+      <div ref={cardRef} className="template4">
         <div className="card-left">
           <div className="qr-code">
             <QRCode value={vCardData} className="temp4qrcode" />
@@ -28,6 +33,13 @@ const Template4 = ({ temp4Data }) => {
               {temp4Data?.countryCode && temp4Data?.phoneNumber
                 ? `+${temp4Data.countryCode}-${temp4Data.phoneNumber}`
                 : "+94-98xxxxxx98"}
+            </div>
+            <div className="temp4-h">
+              <div>
+                <FaHouseChimney />
+              </div>
+              &nbsp;
+              {temp4Data.address || "address"}
             </div>
             {temp4Data?.website && (
               <div className="temp4-h">
@@ -55,8 +67,11 @@ const Template4 = ({ temp4Data }) => {
             <br />
             <small>{temp4Data?.designation || "Designation"}</small>
           </div>
-          <FaBattleNet  className="logo"/>
+          <FaBattleNet className="logo" />
         </div>
+      </div>
+      <div className="template4-dbtn">
+        <DownloadButton targetRef={cardRef} fileName="CardTemplate" />
       </div>
     </>
   );
