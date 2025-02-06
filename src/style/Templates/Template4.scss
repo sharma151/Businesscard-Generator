@@ -1,7 +1,7 @@
 .template4 {
   display: flex;
-  max-width: 370px;
-  width: 100%;
+  width: 370px;
+
   height: 220px;
   box-shadow: 3px 3px 33px 3px rgba(0, 0, 0, 0.6);
   border-radius: 8px;
@@ -71,5 +71,32 @@
       top: 120px;
       color: #124a50;
     }
+  }
+  @media (max-width: 480px) {
+    transform: scale(0.85); /* Scale down to 80% */
+    transform-origin: top left; /* Adjust origin for better placement */
+  }
+
+  @media (max-width: 360px) {
+    transform: scale(0.8); /* Scale down further for smaller screens */
+    transform-origin: top left; /* Keep origin consistent */
+  }
+}
+.template4-dbtn {
+  position: absolute;
+  left: 300px;
+  top: 880px;
+  z-index: 1;
+
+  
+  @media (max-width: 360px) {
+    position: absolute;
+    left: 230px;
+    top: 665px;
+  }
+  @media (min-width: 360px) and (max-width: 450px) {
+    position: absolute;
+    left: 240px;
+    top: 665px;
   }
 }
