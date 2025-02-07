@@ -3,11 +3,15 @@ import { HiPhone, HiMiniGlobeAsiaAustralia } from "react-icons/hi2";
 import "../style/Templates/Template5.scss";
 import { HiOutlineMail } from "react-icons/hi";
 import { CgWebsite } from "react-icons/cg";
+import { FaHouseChimney } from "react-icons/fa6";
+import DownloadButton from "../Components/DownloadButton";
+import { useRef } from "react";
 
 const Template5 = ({ temp5Data }) => {
+  const cardRef = useRef(null);
   return (
     <>
-      <div className="template5">
+      <div ref={cardRef} className="template5">
         <div className="card-left">
           <div className="upper"></div>
           <div className="lower"></div>
@@ -32,6 +36,13 @@ const Template5 = ({ temp5Data }) => {
                 ? `+${temp5Data.countryCode}-${temp5Data.phoneNumber}`
                 : "+95-98xxxxxx98"}
             </div>
+            <div className="temp5-h">
+              <div>
+                <FaHouseChimney />
+              </div>
+              &nbsp;
+              {temp5Data.address || "address"}
+            </div>
             {temp5Data?.website && (
               <div className="temp5-h">
                 <HiMiniGlobeAsiaAustralia />{" "}
@@ -45,6 +56,9 @@ const Template5 = ({ temp5Data }) => {
             )}
           </div>
         </div>
+      </div>
+      <div className="template5-dbtn">
+        <DownloadButton targetRef={cardRef} fileName="CardTemplate" />
       </div>
     </>
   );

@@ -11,8 +11,8 @@
     width: 60%;
     position: relative;
     background-color: #b78f5b;
-    flex-shrink: 0; /* Prevent shrinking */
-    min-width: 150px; /* Optional: Define a minimum width */
+    flex-shrink: 0;
+    min-width: 150px;
 
     .upper {
       position: absolute;
@@ -38,8 +38,9 @@
   .name {
     z-index: 999;
     position: relative;
-    top: 60px;
-    right: 40px;
+    top: 50px;
+    right: 10px;
+    font-size: 20px;
     width: max-content;
     color: #062538;
   }
@@ -49,30 +50,50 @@
     z-index: 999;
     font-size: 14px;
     position: relative;
-    top: 70px;
+    top: 65px;
     right: 80px;
 
     display: flex;
     flex-direction: column;
-    align-items: flex-end; /* Ensures alignment to the right */
-    gap: 5px;
+    align-items: flex-end;
+    // gap: 5px;
 
-    /* Add padding to maintain spacing if content is absent */
-    padding: 10px;
+    padding: 5px;
 
     .temp5-h {
       display: flex;
       flex-direction: row-reverse;
-      gap: 5px; /* Add spacing between elements */
+      gap: 5px;
     }
   }
   @media (max-width: 480px) {
-    transform: scale(0.85); /* Scale down to 80% */
-    transform-origin: top left; /* Adjust origin for better placement */
+    transform: scale(0.85);
+    transform-origin: top left;
   }
 
   @media (max-width: 360px) {
-    transform: scale(0.85); /* Scale down further for smaller screens */
-    transform-origin: top left; /* Keep origin consistent */
+    transform: scale(0.8);
+    transform-origin: top left;
+  }
+}
+
+.template5-dbtn {
+  position: absolute;
+  left: 300px;
+  top: 1110px;
+  z-index: 1;
+
+  .btn {
+    color: white;
+  }
+  @media (max-width: 360px) {
+    position: absolute;
+    left: 230px;
+    top: 885px;
+  }
+  @media (min-width: 360px) and (max-width: 450px) {
+    position: absolute;
+    left: 240px;
+    top: 890px;
   }
 }
