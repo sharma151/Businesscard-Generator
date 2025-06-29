@@ -52,14 +52,14 @@ const Template1 = ({ temp1Data }) => {
                 {/* Contact and other info */}
                 <div className="absolute top-[93px] left-[20px] w-[250px] h-[90px] text-gray-500 text-xs space-y-1">
                   <div className="flex items-center gap-1">
-                    <div className=" p-1 bg-red-600 text-white font-bold inline-block">
+                    <div className=" p-1 rounded bg-red-600 text-white font-bold inline-block">
                       <HiOutlineMail />
                     </div>
                     {temp1Data?.email || "username@example.com"}
                   </div>
 
                   <div className="flex items-center gap-1">
-                    <div className="p-1 bg-[#b60b0b] text-white font-bold inline-block">
+                    <div className="p-1 rounded bg-[#b60b0b] text-white font-bold inline-block">
                       <HiPhone />
                     </div>
                     {temp1Data?.countryCode && temp1Data?.phoneNumber
@@ -68,7 +68,7 @@ const Template1 = ({ temp1Data }) => {
                   </div>
 
                   <div className="flex items-center gap-1">
-                    <div className=" p-1 bg-red-600 text-white font-bold inline-block">
+                    <div className=" p-1 rounded bg-red-600 text-white font-bold inline-block">
                       <FaHouseChimney />
                     </div>
                     {temp1Data?.address || "address"}
@@ -76,7 +76,7 @@ const Template1 = ({ temp1Data }) => {
 
                   {temp1Data?.website && (
                     <div className="flex items-center gap-1">
-                      <div className=" p-1 bg-[#b60b0b] text-white font-bold inline-block">
+                      <div className=" p-1 rounded bg-[#b60b0b] text-white font-bold inline-block">
                         <HiMiniGlobeAsiaAustralia />
                       </div>
                       {temp1Data.website}
@@ -85,7 +85,7 @@ const Template1 = ({ temp1Data }) => {
 
                   {temp1Data?.gst && (
                     <div className="flex items-center gap-1">
-                      <div className=" p-1 bg-red-600 text-white font-bold inline-block">
+                      <div className=" p-1 rounded bg-red-600 text-white font-bold inline-block">
                         <CgWebsite />
                       </div>
                       {temp1Data.gst}
