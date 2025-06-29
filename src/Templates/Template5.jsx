@@ -9,56 +9,81 @@ import { useRef } from "react";
 
 const Template5 = ({ temp5Data }) => {
   const cardRef = useRef(null);
+
   return (
     <>
-      <div ref={cardRef} className="template5">
-        <div className="card-left">
-          <div className="upper"></div>
-          <div className="lower"></div>
-        </div>
-        <div className="card-right">
-          <div className="name">
-            <strong>
-              {temp5Data?.fname && temp5Data?.lname
-                ? `${temp5Data.fname} ${temp5Data.lname}`
-                : "Your Name"}
-            </strong>
-            <br />
-            <small>{temp5Data?.designation || "Designation"}</small>
+      <div>
+        <div
+          className="
+          transform origin-top-left
+          sm:scale-[1]
+          xs:scale-[0.8]
+          relative z-10
+          "
+          // style={{ maxWidth: "370px" }}
+        >
+          <div
+            ref={cardRef}
+            className="template5 w-[370px] h-[220px] flex rounded-[10px] overflow-hidden shadow-md bg-[#b78f5b] relative flex-wrap border border-black"
+          >
+            {/* Left side design layers */}
+            <div className="card-left relative flex-shrink-0 min-w-[150px] w-[60%] bg-[#b78f5b]">
+              <div className="upper absolute top-0 left-0 w-full h-[78%]" />
+              <div className="lower absolute bottom-0 left-0 w-full h-[72%]" />
+            </div>
+
+            {/* Right side info */}
+            <div className="card-right flex-1 relative flex flex-col justify-start px-4 pt-8 pb-4 z-50">
+              <div className="name absolute top-11 left-[-30px] text-[18px] leading-[15px] text-[#062538]  font-semibold ">
+                <strong>
+                  {temp5Data?.fname && temp5Data?.lname
+                    ? `${temp5Data.fname} ${temp5Data.lname}`
+                    : "Your Name"}
+                </strong>
+                <br />
+                <small className="text-sm font-normal">
+                  {temp5Data?.designation || "Designation"}
+                </small>
+              </div>
+
+              <div className=" text-[#062538] pt-5 pb-3 font-normal ">
+                <div className="flex flex-col gap-1 text-[0.8rem] absolute top-[95px] left-[-70px] z-50">
+                  <div className="flex items-center gap-1">
+                    <HiOutlineMail />
+                    {temp5Data?.email || "username@example.com"}
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <HiPhone />
+                    {temp5Data?.countryCode && temp5Data?.phoneNumber
+                      ? `+${temp5Data.countryCode}-${temp5Data.phoneNumber}`
+                      : "+94-98xxxxxx98"}
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <FaHouseChimney />
+                    {temp5Data.address || "address"}
+                  </div>
+                  {temp5Data?.website && (
+                    <div className="flex items-center gap-1">
+                      <HiMiniGlobeAsiaAustralia />
+                      {temp5Data.website}
+                    </div>
+                  )}
+                  {temp5Data?.gst && (
+                    <div className="flex items-center gap-1">
+                      <CgWebsite />
+                      {temp5Data.gst}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="temp5-details">
-            <div className="temp5-h">
-              <HiOutlineMail /> {temp5Data?.email || "username@example.com"}
-            </div>
-            <div className="temp5-h">
-              <HiPhone />
-              {temp5Data?.countryCode && temp5Data?.phoneNumber
-                ? `+${temp5Data.countryCode}-${temp5Data.phoneNumber}`
-                : "+95-98xxxxxx98"}
-            </div>
-            <div className="temp5-h">
-              <div>
-                <FaHouseChimney />
-              </div>
-              &nbsp;
-              {temp5Data.address || "address"}
-            </div>
-            {temp5Data?.website && (
-              <div className="temp5-h">
-                <HiMiniGlobeAsiaAustralia />{" "}
-                {temp5Data.website || "www.example.com"}
-              </div>
-            )}
-            {temp5Data?.gst && (
-              <div className="temp5-h">
-                <CgWebsite /> {temp5Data.gst || "25AAACC5206D5ZT"}
-              </div>
-            )}
-          </div>
         </div>
-      </div>
-      <div className="template5-dbtn">
-        <DownloadButton targetRef={cardRef} fileName="CardTemplate" />
+
+        {/* Download button */}
+        <div className="relative left-[10px] top-[-35px] z-50">
+          <DownloadButton targetRef={cardRef} fileName="CardTemplate" />
+        </div>
       </div>
     </>
   );

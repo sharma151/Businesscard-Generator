@@ -2,76 +2,86 @@
 import { HiPhone, HiMiniGlobeAsiaAustralia } from "react-icons/hi2";
 import { UserDataContext } from "../Context/userdatacontext";
 import { HiOutlineMail } from "react-icons/hi";
-import { FaHouseChimney } from "react-icons/fa6";
-import { FaBattleNet } from "react-icons/fa6";
-import { useContext } from "react";
+import { FaHouseChimney, FaBattleNet } from "react-icons/fa6";
+import { useContext, useRef } from "react";
 import { CgWebsite } from "react-icons/cg";
-import "../style/Templates/Template4.scss";
 import QRCode from "react-qr-code";
 import DownloadButton from "../Components/DownloadButton";
-import { useRef } from "react";
 
 const Template4 = ({ temp4Data }) => {
   const { vCardData } = useContext(UserDataContext);
   const cardRef = useRef(null);
+
   return (
     <>
-      <div ref={cardRef} className="template4">
-        <div className="card-left">
-          <div className="qr-code">
-            <QRCode value={vCardData} className="temp4qrcode" />
-          </div>
-          <div className="temp4-details">
-            <div className="temp4-h">
-              <HiOutlineMail />
-              &nbsp;
-              {temp4Data?.email || "username@example.com"}
-            </div>
-            <div className="temp4-h">
-              <HiPhone />
-              &nbsp;
-              {temp4Data?.countryCode && temp4Data?.phoneNumber
-                ? `+${temp4Data.countryCode}-${temp4Data.phoneNumber}`
-                : "+94-98xxxxxx98"}
-            </div>
-            <div className="temp4-h">
-              <div>
-                <FaHouseChimney />
+      <div>
+        <div
+          className="
+          transform origin-top-left
+          sm:scale-[1]
+          xs:scale-[0.8]
+          relative z-10
+          "
+          style={{ maxWidth: "370px" }}
+        >
+          <div
+            ref={cardRef}
+            className="flex w-[370px] h-[220px] bg-white border border-black rounded-lg overflow-hidden relative"
+          >
+            {/* Left Side */}
+            <div className="flex-[1.9] bg-[#124a50] text-white px-5 pt-5 pb-3 relative [clip-path:polygon(0_0,70%_0,100%_100%,0%_100%)]">
+              <div className="w-[60px] h-[60px] bg-white text-black flex justify-center items-center rounded p-[3px] absolute top-5 left-10">
+                <QRCode value={vCardData} className="w-[60px] h-[60px]" />
               </div>
-              &nbsp;
-              {temp4Data.address || "address"}
+              <div className="flex flex-col gap-1 text-xs absolute top-[90px] left-[15px]">
+                <div className="flex items-center gap-1">
+                  <HiOutlineMail />
+                  {temp4Data?.email || "username@example.com"}
+                </div>
+                <div className="flex items-center gap-1">
+                  <HiPhone />
+                  {temp4Data?.countryCode && temp4Data?.phoneNumber
+                    ? `+${temp4Data.countryCode}-${temp4Data.phoneNumber}`
+                    : "+94-98xxxxxx98"}
+                </div>
+                <div className="flex items-center gap-1">
+                  <FaHouseChimney />
+                  {temp4Data.address || "address"}
+                </div>
+                {temp4Data?.website && (
+                  <div className="flex items-center gap-1">
+                    <HiMiniGlobeAsiaAustralia />
+                    {temp4Data.website}
+                  </div>
+                )}
+                {temp4Data?.gst && (
+                  <div className="flex items-center gap-1">
+                    <CgWebsite />
+                    {temp4Data.gst}
+                  </div>
+                )}
+              </div>
             </div>
-            {temp4Data?.website && (
-              <div className="temp4-h">
-                <HiMiniGlobeAsiaAustralia />
-                &nbsp;
-                {temp4Data.website || "www.example.com"}
+
+            {/* Right Side */}
+            <div className="flex-1 relative">
+              <div className="absolute top-10 left-[-37px] text-[18px] font-sans leading-[15px]">
+                <strong>
+                  {temp4Data?.fname && temp4Data?.lname
+                    ? `${temp4Data.fname} ${temp4Data.lname}`
+                    : "Your Name"}
+                </strong>
+                <br />
+                <small>{temp4Data?.designation || "Designation"}</small>
               </div>
-            )}
-            {temp4Data?.gst && (
-              <div className="temp4-h">
-                <CgWebsite />
-                &nbsp;
-                {temp4Data.gst || "24AAACC4206D4ZT"}
-              </div>
-            )}
+              <FaBattleNet className="text-[50px] text-[#124a50] absolute top-[130px] left-[20px]" />
+            </div>
           </div>
         </div>
-        <div className="card-right">
-          <div className="name">
-            <strong>
-              {temp4Data?.fname && temp4Data?.lname
-                ? `${temp4Data.fname} ${temp4Data.lname}`
-                : "Your Name"}
-            </strong>
-            <br />
-            <small>{temp4Data?.designation || "Designation"}</small>
-          </div>
-          <FaBattleNet className="logo" />
+        {/* Download Button */}
+        <div className="relative left-[300px] top-[-35px] z-50">
+          <DownloadButton targetRef={cardRef} fileName="CardTemplate" />
         </div>
-      </div>
-      <div className="template4-dbtn">
-        <DownloadButton targetRef={cardRef} fileName="CardTemplate" />
       </div>
     </>
   );
