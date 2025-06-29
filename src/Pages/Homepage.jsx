@@ -1,42 +1,44 @@
-import "../style/Pages/homepages.scss";
-import { Link } from "react-router-dom";
+// src/pages/HomePage.jsx
 import { BsQrCodeScan } from "react-icons/bs";
 import { BiBarcode } from "react-icons/bi";
 import { TiBusinessCard } from "react-icons/ti";
+import FeatureCard from "../Components/FeatureCard"; // adjust path as needed
 
 const HomePage = () => {
+  const features = [
+    {
+      title: "QR Code Generator",
+      description: "Easily generate QR codes for URLs, text, and more!",
+      link: "/qrcode",
+      icon: BsQrCodeScan,
+    },
+    {
+      title: "Barcode Generator",
+      description: "Create barcodes in various formats with ease.",
+      link: "/Barcode",
+      icon: BiBarcode,
+    },
+    {
+      title: "Business Card Generator",
+      description: "Design and download personalized business cards.",
+      link: "/BusinessCard",
+      icon: TiBusinessCard,
+    },
+  ];
+
   return (
-    <div className="homepage">
-      <h1 className="homepage-title">Welcome to Generator Hub</h1>
-      <p className="homepage-subtitle">
+    <div className="min-h-[calc(100vh-4rem)] bg-blue-100 py-5 px-4">
+      <h1 className="text-4xl font-bold text-center mb-4 text-gray-800 drop-shadow">
+        Welcome to Generator Hub
+      </h1>
+      <p className="text-center text-lg text-gray-600 mb-10">
         Create QR Codes, Barcodes, and Business Cards in just a few clicks!
       </p>
 
-      <div className="features-container">
-        <div className="feature-card qr-code">
-          <h2>QR Code Generator</h2>
-          <p>Easily generate QR codes for URLs, text, and more!</p>
-          <Link to="/qrcode" className="qrcode">
-            <BsQrCodeScan size={20} /> <span> QR Code Generator </span>
-          </Link>
-        </div>
-
-        <div className="feature-card barcode">
-          <h2>Barcode Generator</h2>
-          <p>Create barcodes in various formats with ease.</p>
-          <Link to="/Barcode" className="barcode">
-            <BiBarcode size={20} /> <span> Barcode Generator</span>
-          </Link>
-        </div>
-
-        <div className="feature-card business-card">
-          <h2>Business Card Generator</h2>
-          <p>Design and download personalized business cards.</p>
-          <Link to="/BusinessCard" className="businesscard">
-            <TiBusinessCard size={20} />
-            <span> Businesscard Generator</span>
-          </Link>
-        </div>
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {features.map((feature) => (
+          <FeatureCard key={feature.title} {...feature} />
+        ))}
       </div>
     </div>
   );

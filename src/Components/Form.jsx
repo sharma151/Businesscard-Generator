@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
-import "../style/Components/Form.scss";
 import { UserDataContext } from "../Context/userdatacontext";
+import Input from "./Input";
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -15,8 +15,8 @@ const Form = () => {
     company: "",
     gst: "",
   });
-  const { setUserData } = useContext(UserDataContext);
 
+  const { setUserData } = useContext(UserDataContext);
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
@@ -32,8 +32,6 @@ const Form = () => {
       formErrors.email = "Please enter a valid email";
     if (!formData.phoneNumber || !/^\d{10}$/.test(formData.phoneNumber))
       formErrors.phoneNumber = "Please enter a valid phone number";
-    // if (!formData.gst || !/^[A-Z0-9]{15}$/.test(formData.gst))
-    //   formErrors.gst = "Please enter a valid GST number";
     return formErrors;
   };
 
@@ -49,131 +47,92 @@ const Form = () => {
   };
 
   return (
-    <form className="form-container" onSubmit={handleSubmit}>
-      <h2>Personal Information</h2>
-      <div className="innercontainer">
-        <div className="input-group">
-          <label htmlFor="fname">First Name *</label>
-          <input
-            type="text"
-            id="fname"
-            name="fname"
-            value={formData.fname}
-            onChange={handleChange}
-          />
-          {errors.fname && <span className="error">{errors.fname}</span>}
-        </div>
+    <form
+      className="bg-white rounded-xl shadow-lg p-6 space-y-6 border border-gray-200"
+      onSubmit={handleSubmit}
+    >
+      <h2 className="text-xl font-semibold text-gray-800 border-b pb-2">
+        Personal Information
+      </h2>
 
-        <div className="input-group">
-          <label htmlFor="lname">Last Name *</label>
-          <input
-            type="text"
-            id="lname"
-            name="lname"
-            value={formData.lname}
-            onChange={handleChange}
-          />
-          {errors.lname && <span className="error">{errors.lname}</span>}
-        </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <Input
+          label="First Name *"
+          name="fname"
+          value={formData.fname}
+          onChange={handleChange}
+          error={errors.fname}
+        />
+        <Input
+          label="Last Name *"
+          name="lname"
+          value={formData.lname}
+          onChange={handleChange}
+          error={errors.lname}
+        />
+        <Input
+          label="Designation *"
+          name="designation"
+          value={formData.designation}
+          onChange={handleChange}
+        />
+        <Input
+          label="Email *"
+          name="email"
+          type="email"
+          value={formData.email}
+          onChange={handleChange}
+          error={errors.email}
+        />
 
-        <div className="input-group">
-          <label htmlFor="designation">Designation *</label>
-          <input
-            type="text"
-            id="designation"
-            name="designation"
-            value={formData.designation}
-            onChange={handleChange}
-          />
-        </div>
+        {/* Contact details */}
+        <Input
+          label="Country Code *"
+          name="countryCode"
+          placeholder="+"
+          value={formData.countryCode}
+          onChange={handleChange}
+        />
+        <Input
+          label="Phone *"
+          name="phoneNumber"
+          value={formData.phoneNumber}
+          onChange={handleChange}
+          error={errors.phoneNumber}
+        />
 
-        <div className="input-group">
-          <label htmlFor="email">Email *</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-          />
-          {errors.email && <span className="error">{errors.email}</span>}
-        </div>
-
-        <div className="contact">
-          <div className="input-group">
-            <label htmlFor="countryCode">Country Code *</label>
-            <input
-              type="text"
-              id="countryCode"
-              name="countryCode"
-              placeholder="+"
-              value={formData.countryCode}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="input-group">
-            <label htmlFor="phoneNumber">Phone *</label>
-            <input
-              type="text"
-              id="phoneNumber"
-              name="phoneNumber"
-              value={formData.phoneNumber}
-              onChange={handleChange}
-            />
-            {errors.phoneNumber && (
-              <span className="error">{errors.phoneNumber}</span>
-            )}
-          </div>
-        </div>
-
-        <div className="input-group">
-          <label htmlFor="website">Address *</label>
-          <input
-            id="address"
-            name="address"
-            value={formData.address}
-            onChange={handleChange}
-          />
-        </div>
-
-        <div className="input-group">
-          <label htmlFor="website">Website</label>
-          <input
-            id="website"
-            name="website"
-            value={formData.website}
-            onChange={handleChange}
-          />
-        </div>
-
-        <div className="input-group">
-          <label htmlFor="company">Company</label>
-          <input
-            type="text"
-            id="company"
-            name="company"
-            value={formData.company}
-            onChange={handleChange}
-          />
-        </div>
-
-        <div className="input-group">
-          <label htmlFor="gst">GST Number</label>
-          <input
-            type="text"
-            id="gst"
-            name="gst"
-            value={formData.gst}
-            onChange={handleChange}
-          />
-          {errors.gst && <span className="error">{errors.gst}</span>}
-        </div>
-
-        <button type="submit" className="submit-btn">
-          Submit
-        </button>
+        <Input
+          label="Address *"
+          name="address"
+          value={formData.address}
+          onChange={handleChange}
+        />
+        <Input
+          label="Website"
+          name="website"
+          value={formData.website}
+          onChange={handleChange}
+        />
+        <Input
+          label="Company"
+          name="company"
+          value={formData.company}
+          onChange={handleChange}
+        />
+        <Input
+          label="GST Number"
+          name="gst"
+          value={formData.gst}
+          onChange={handleChange}
+        />
       </div>
+
+      <button
+        type="submit"
+        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300"
+      >
+        Submit
+      </button>
     </form>
   );
 };
