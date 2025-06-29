@@ -24,7 +24,7 @@ const Template2 = ({ temp2Data }) => {
         >
           <div
             ref={targetRef}
-            className="template2 relative bg-white overflow-hidden shadow-xl rounded-[5px] w-[370px] h-[220px] scale-100 sm:scale-[0.95] xs:scale-[0.85]"
+            className="template2 relative  bg-white overflow-hidden shadow-xl rounded-[5px] w-[370px] h-[220px] scale-100 sm:scale-[0.95] xs:scale-[0.85]"
           >
             <div className="relative w-full h-full">
               {/* Background shape using clip-path (in SCSS) */}

@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
-import "../style/Templates/Template3.scss";
-import logo from "../assets/carpenterlogo.jpg"
+import logo from "../assets/carpenterlogo.jpg";
 import { HiOutlineMail } from "react-icons/hi";
 import { HiPhone, HiMiniGlobeAsiaAustralia } from "react-icons/hi2";
 import { FaHouseChimney } from "react-icons/fa6";
@@ -16,66 +15,83 @@ const Template3 = ({ temp3Data }) => {
 
   return (
     <>
-      <div ref={targetRef} className="template3">
-        <div className="left">
-          <div id="temp3-qr">
-            <QRCode value={vCardData} className="temp3qrcode" />
-          </div>
-        </div>
-        <div className="right">
-          <div className="name">
-            <strong>
-              {temp3Data?.fname && temp3Data?.lname
-                ? `${temp3Data.fname} ${temp3Data.lname}`
-                : "Your Name"}
-            </strong>
-            <br />
-            <small>{temp3Data?.designation || "Designation"}</small>
-          </div>
-          <div className="details">
-            <div>
-              <div className="temp3-h">
-                <HiOutlineMail />
-                &nbsp;
-                {temp3Data?.email || "username@example.com"}
+      <div className="w-max relative">
+        <div
+          className="
+          transform origin-top-left
+          sm:scale-[1]
+          xs:scale-[0.8]
+          relative z-10
+          "
+          style={{ maxWidth: "370px" }}
+        >
+          <div
+            ref={targetRef}
+            className="relative flex w-[370px] h-[220px] rounded-lg scale-100 overflow-hidden border border-black"
+          >
+            {/* Left Side with QR */}
+            <div className="w-1/3 bg-[#98c5c8] relative">
+              <div className="absolute top-4 left-7 bg-white p-1.5 rounded">
+                <QRCode value={vCardData} className="h-[45px] w-[45px]" />
               </div>
-              <div className="temp3-h">
-                <HiPhone />
-                &nbsp;
-                {temp3Data?.countryCode && temp3Data?.phoneNumber
-                  ? `+${temp3Data.countryCode}-${temp3Data.phoneNumber}`
-                  : "+93-98xxxxxx98"}
+            </div>
+
+            {/* Right Side with Info */}
+            <div className="w-2/3 bg-[#333536] text-white relative px-3">
+              <div className="absolute top-[50px] left-[50px] font-sans">
+                <strong>
+                  {temp3Data?.fname && temp3Data?.lname
+                    ? `${temp3Data.fname} ${temp3Data.lname}`
+                    : "Your Name"}
+                </strong>
+                <br />
+                <small>{temp3Data?.designation || "Designation"}</small>
               </div>
-              <div className="temp3-h">
-                <div>
-                  <FaHouseChimney />
+
+              <div className="absolute top-[110px] left-[50px] text-xs space-y-1">
+                <div className="flex items-center">
+                  <HiOutlineMail className="mr-1" />
+                  {temp3Data?.email || "username@example.com"}
                 </div>
-                &nbsp;
-                {temp3Data.address || "address"}
+                <div className="flex items-center">
+                  <HiPhone className="mr-1" />
+                  {temp3Data?.countryCode && temp3Data?.phoneNumber
+                    ? `+${temp3Data.countryCode}-${temp3Data.phoneNumber}`
+                    : "+93-98xxxxxx98"}
+                </div>
+                <div className="flex items-center">
+                  <FaHouseChimney className="mr-1" />
+                  {temp3Data.address || "address"}
+                </div>
+                {temp3Data?.website && (
+                  <div className="flex items-center">
+                    <HiMiniGlobeAsiaAustralia className="mr-1" />
+                    {temp3Data.website}
+                  </div>
+                )}
+                {temp3Data?.gst && (
+                  <div className="flex items-center">
+                    <CgWebsite className="mr-1" />
+                    {temp3Data.gst}
+                  </div>
+                )}
               </div>
-              {temp3Data?.website && (
-                <div className="temp3-h">
-                  <HiMiniGlobeAsiaAustralia />
-                  &nbsp;
-                  {temp3Data.website || "www.example.com"}
-                </div>
-              )}
-              {temp3Data?.gst && (
-                <div className="temp3-h">
-                  <CgWebsite />
-                  &nbsp;
-                  {temp3Data.gst || "24AAACC3206D3ZT"}
-                </div>
-              )}
+            </div>
+
+            {/* Profile Image */}
+            <div className="absolute top-[70px] left-[calc(33%-55px)] h-[100px] w-[100px] rounded-full border-2 border-white flex justify-center items-center bg-white">
+              <img
+                src={logo}
+                alt="profile"
+                className="h-[90%] w-[90%] rounded-full border border-white object-cover"
+              />
             </div>
           </div>
         </div>
-        <div className="photo">
-          <img src={logo} alt="mountainsrange photo" />
+        {/* Download Button */}
+        <div className="relative left-[40px] top-[-35px] z-50">
+          <DownloadButton targetRef={targetRef} fileName="CardTemplate" />
         </div>
-      </div>
-      <div className="template3-dbtn">
-        <DownloadButton targetRef={targetRef} fileName="CardTemplate" />
       </div>
     </>
   );
