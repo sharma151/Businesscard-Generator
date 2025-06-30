@@ -21,7 +21,7 @@ const Navbar = () => {
       </Link>
 
       {/* Desktop Menu */}
-      <ul className="hidden md:flex gap-6 items-center">
+      <ul className="hidden md:flex gap-6 items-center mr-4">
         <li>
           <Link
             to="/Qrcode"
