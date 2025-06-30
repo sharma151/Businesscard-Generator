@@ -16,15 +16,13 @@ const Template2 = ({ temp2Data }) => {
         <div
           className="
           transform origin-top-left
-          sm:scale-[1]
-          xs:scale-[0.8]
           relative z-10
           "
           style={{ maxWidth: "370px" }}
         >
           <div
             ref={targetRef}
-            className="template2 relative  bg-white overflow-hidden shadow-xl rounded-[5px] w-[370px] h-[220px] scale-100 sm:scale-[0.95] xs:scale-[0.85]"
+            className="template2 relative  bg-white overflow-hidden shadow-xl rounded-[5px] w-[370px] h-[220px] scale-[0.95] sm:scale-100 "
           >
             <div className="relative w-full h-full">
               {/* Background shape using clip-path (in SCSS) */}

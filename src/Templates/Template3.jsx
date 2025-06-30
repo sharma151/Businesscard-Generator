@@ -19,15 +19,13 @@ const Template3 = ({ temp3Data }) => {
         <div
           className="
           transform origin-top-left
-          sm:scale-[1]
-          xs:scale-[0.8]
           relative z-10
           "
           style={{ maxWidth: "370px" }}
         >
           <div
             ref={targetRef}
-            className="relative flex w-[370px] h-[220px] rounded-lg scale-100 overflow-hidden border border-black"
+            className="relative flex w-[370px] h-[220px] rounded-lg scale-[0.95] sm:scale-100  overflow-hidden border border-black"
           >
             {/* Left Side with QR */}
             <div className="w-1/3 bg-[#98c5c8] relative">

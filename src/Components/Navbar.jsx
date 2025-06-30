@@ -14,18 +14,14 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-full bg-white shadow-md px-4 py-3 flex items-center justify-between">
+    <nav className="w-full bg-white shadow-md px-4 py-3 flex items-center justify-between sticky top-0 z-50">
       {/* Home - always on left */}
-      <Link
-        to="/"
-        className="flex items-center gap-2 text-blue-600 font-semibold"
-      >
+      <Link to="/" className="flex items-center gap-2  font-semibold pl-5">
         <PiIdentificationCardFill size={30} />
-        <span className="text-lg hidden sm:inline">Home</span>
       </Link>
 
       {/* Desktop Menu */}
-      <ul className="hidden md:flex gap-6 items-center">
+      <ul className="hidden md:flex gap-6 items-center mr-4">
         <li>
           <Link
             to="/Qrcode"
@@ -57,7 +53,7 @@ const Navbar = () => {
 
       {/* Mobile Toggle Button */}
       <div
-        className="md:hidden text-2xl text-gray-700"
+        className="md:hidden text-2xl text-gray-700 pr-3"
         onClick={toggleDropdown}
       >
         {dropdownOpen ? <FaTimes /> : <FaBars />}

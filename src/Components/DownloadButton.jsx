@@ -10,7 +10,6 @@ const DownloadButton = ({ targetRef, fileName, className }) => {
     try {
       const dataUrl = await toPng(targetRef.current, {
         pixelRatio: 4, // Increase pixel ratio for better quality
-        
       });
       const link = document.createElement("a");
       link.href = dataUrl;
@@ -52,11 +51,17 @@ const DownloadButton = ({ targetRef, fileName, className }) => {
   };
 
   return (
-    <div className={`download-btn ${className || ""}`}>
-      <button onClick={handleDownloadPNG} className="btn">
+    <div className={`flex items-center gap-2 ${className || ""}`}>
+      <button
+        onClick={handleDownloadPNG}
+        className="text-[15px] md:text-[16px] text-gray-800 bg-white p-1 rounded hover:text-blue-600 transition cursor-pointer"
+      >
         <BiSolidFilePng />
       </button>
-      <button onClick={handleDownloadPDF} className="btn">
+      <button
+        onClick={handleDownloadPDF}
+        className="text-[15px] md:text-[16px] text-gray-800 bg-white p-1 rounded hover:text-red-600 transition cursor-pointer"
+      >
         <BiSolidFilePdf />
       </button>
     </div>

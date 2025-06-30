@@ -26,7 +26,7 @@ const Barcode = () => {
   };
 
   return (
-    <div className="min-h-[calc(100vh-4rem)] bg-blue-100 flex items-center justify-center px-4 py-10">
+    <div className="min-h-[calc(100vh-6.5rem)] bg-gradient-to-r from-blue-100 via-blue-200 to-indigo-200 flex items-center justify-center px-4 py-10">
       <div className="w-full max-w-xl bg-white shadow-lg rounded-xl p-8">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-2">
           Barcode Generator
