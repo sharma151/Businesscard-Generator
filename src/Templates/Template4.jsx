@@ -18,15 +18,13 @@ const Template4 = ({ temp4Data }) => {
         <div
           className="
           transform origin-top-left
-          sm:scale-[1]
-          xs:scale-[0.8]
           relative z-10
           "
           style={{ maxWidth: "370px" }}
         >
           <div
             ref={cardRef}
-            className="flex w-[370px] h-[220px] bg-white border border-black rounded-lg overflow-hidden relative"
+            className="scale-[0.95] sm:scale-100 flex w-[370px] h-[220px] bg-white border border-black rounded-lg overflow-hidden relative"
           >
             {/* Left Side */}
             <div className="flex-[1.9] bg-[#124a50] text-white px-5 pt-5 pb-3 relative [clip-path:polygon(0_0,70%_0,100%_100%,0%_100%)]">

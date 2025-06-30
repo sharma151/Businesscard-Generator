@@ -24,12 +24,12 @@ const Template1 = ({ temp1Data }) => {
           sm:scale-[1]
           xs:scale-[0.8]
           relative z-10
-          "
+           "
           style={{ maxWidth: "370px" }}
         >
           <div
             ref={cardRef}
-            className="relative rounded-lg overflow-hidden h-[220px] w-[370px] border border-black template1"
+            className="relative scale-[0.95] sm:scale-100  rounded-lg overflow-hidden h-[220px] w-[370px] border border-black template1"
           >
             {/* Overflow hidden wrapper to keep contents inside */}
             <div className="relative w-full h-full overflow-hidden">

@@ -16,15 +16,13 @@ const Template5 = ({ temp5Data }) => {
         <div
           className="
           transform origin-top-left
-          sm:scale-[1]
-          xs:scale-[0.8]
           relative z-10
           "
           // style={{ maxWidth: "370px" }}
         >
           <div
             ref={cardRef}
-            className="template5 w-[370px] h-[220px] flex rounded-[10px] overflow-hidden shadow-md bg-[#b78f5b] relative flex-wrap border border-black"
+            className="template5 scale-[0.95] sm:scale-100  w-[370px] h-[220px] flex rounded-[10px] overflow-hidden shadow-md bg-[#b78f5b] relative flex-wrap border border-black"
           >
             {/* Left side design layers */}
             <div className="card-left relative flex-shrink-0 min-w-[150px] w-[60%] bg-[#b78f5b]">
