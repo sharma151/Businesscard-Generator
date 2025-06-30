@@ -14,7 +14,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-full bg-white shadow-md px-4 py-3 flex items-center justify-between">
+    <nav className="w-full bg-white shadow-md px-4 py-3 flex items-center justify-between sticky top-0 z-50">
       {/* Home - always on left */}
       <Link
         to="/"

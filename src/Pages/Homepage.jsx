@@ -27,7 +27,7 @@ const HomePage = () => {
   ];
 
   return (
-    <div className="min-h-[calc(100vh-4rem)] bg-blue-100 py-5 px-4">
+    <div className="min-h-[calc(100vh-6.5rem)] py-5 px-4">
       <h1 className="text-4xl font-bold text-center mb-4 text-gray-800 drop-shadow">
         Welcome to Generator Hub
       </h1>
