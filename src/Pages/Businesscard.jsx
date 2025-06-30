@@ -11,7 +11,7 @@ const Businesscard = () => {
   const { userData } = useContext(UserDataContext);
 
   return (
-    <div className="flex flex-col-reverse md:flex-row p-2 sm:p-6 w-full max-w-full overflow-x-hidden ">
+    <div className="flex flex-col-reverse md:flex-row p-2 sm:p-6 w-full max-w-full overflow-x-hidden bg-gradient-to-r from-blue-100 via-blue-200 to-indigo-200 ">
   {/* Cards Section */}
   <div className="w-full md:flex-1.4 md:pr-2 mt-4 sm:mt-0 ">
     <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 w-full sm:1/3">
